@@ -15,4 +15,11 @@ Pull requests are also cool, if you have experience with [discord.py](https://gi
 
 This project was originally just some Discord API trolling, and learning about Discord's API and how to interact with it, but now it's some bs repo on GitHub, lol.
 
+## Examples  
+> *(in-discord message logger is not mine, the terminal one is tho)*
+
+<img src='/image/IMG_20240717_210101.jpg' width='318' height='108'>
+
+
+<img src='/image/IMG_20240717_205935.jpg' width='480' height='501'>
 
