@@ -7,6 +7,7 @@ import dotenv
 from dotenv import load_dotenv
 import os
 import time
+import random
 
 # Simplify some discord stuff
 
@@ -19,7 +20,7 @@ load_dotenv()
 
 # Version stuff
 
-version = str("1.0.0")
+version = str("1.0.1")
 devstage = str("alpha")
 
 # Copyright, license, and credit
@@ -74,11 +75,58 @@ async def on_message(ctx):
 
    print("\n\a[1;33m——————Start of message——————[m")
    printMsg()
-   print("[1;33m——————End of message——————[m")
+   print("[1;33m———————End of message———————[m")
    await bot.process_commands(ctx)
 
+@bot.event
+async def on_message_edit(og,ctx):
+   global userID
+   global userName
+   global botID
+   global botUsername
+   global serverName
+   global msgContent
+   global ogMsgContent
+   global channelName
+   global timestamp
+   userID = str(ctx.author.id)
+   userName = str("@" + ctx.author.name)
+   botID = str(bot.user.id)
+   botUsername = str(bot.user.name)
+   msgContent = str(ctx.content)
+   ogMsgContent = str(og.content)
+   serverName = str(ctx.guild.name)
+   channelName = str("#" + ctx.channel.name)
+   timestamp = str(time.strftime('%H:%M:%S'))
 
+   print("\n\a[1;34m——————Edited message——————[0m")
+   print("[1;30m———Original message———")
+   print(ogMsgContent + "[0m")
+   printMsg()
+   print("[1;34m————End edited message————[0m")
 
+@bot.event
+async def on_message_delete(ctx):
+   global userID
+   global userName
+   global botID
+   global botUsername
+   global serverName
+   global msgContent
+   global channelName
+   global timestamp
+   userID = str(ctx.author.id)
+   userName = str("@" + ctx.author.name)
+   botID = str(bot.user.id)
+   botUsername = str(bot.user.name)
+   msgContent = str(ctx.content)
+   serverName = str(ctx.guild.name)
+   channelName = str("#" + ctx.channel.name)                     
+   timestamp = str(time.strftime('%H:%M:%S'))
+
+   print("\n\a[1;31m——————Deleted message——————[0m")
+   printMsg()
+   print("[1;31m————End deleted message————[0m")
 bot.run(botToken)
 
 
